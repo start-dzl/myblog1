@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:http="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="keywords" content="博客,个人,学习,IT">
+    <meta name="description" content="dzl">
+
+    <link rel="icon" type="image/x-icon" href="https://zhy-myblog.oss-cn-shenzhen.aliyuncs.com/static/img/favicon.ico">
+    <link href="https://lib.baomitu.com/amazeui/2.7.2/css/amazeui.min.css" rel="stylesheet">
+    <link href="https://lib.baomitu.com/font-awesome/5.8.0/css/fontawesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/plugs_paging.css">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://lib.baomitu.com/underscore.js/1.9.1/underscore-min.js"></script>
+    <script src="js/lastUrl.js"></script>
+    <script src="https://lib.baomitu.com/amazeui/2.7.2/js/amazeui.min.js"></script>
+
+
+</head>
+<body>
+<header class="am-topbar">
+    <h1 class="am-topbar-brand">
+        <img src="/img/lang.jpg" class="imgStyle">
+    </h1>
+
+    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only"
+            data-am-collapse="{target: '#doc-topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span
+            class="am-icon-bars"></span></button>
+
+    <div class="am-collapse am-topbar-collapse" id="doc-topbar-collapse">
+        <ul class="am-nav am-nav-pills am-topbar-nav">
+            <li><a href="/">首页</a></li>
+            <li><a href="#">分类</a></li>
+            <li><a href="#">关于我</a></li>
+        </ul>
+
+        <div class="am-topbar-right">
+            <button class="am-btn am-btn-primary am-topbar-btn am-btn-sm am-round" style="color: white">管理员登录</button>
+        </div>
+    </div>
+</header>
+
+
+<div class="am-g doc-am-g">
+    <div class="am-u-sm-6 am-u-md-4 am-u-lg-3">
+        <div class="am-panel am-panel-default">
+            <div class="am-panel-hd">
+                <h3 class="am-panel-title"><img src="/img/lang.jpg" class="imgStyle">阿祖</h3>
+            </div>
+            <div class="am-panel-bd">
+                这里是面板其他内容。
+                这里是面板其他内容。
+                这里是面板其他内容。
+                这里是面板其他内容。
+            </div>
+
+            <ul class="am-list am-list-static">
+                <li>...</li>
+            </ul>
+            <div class="am-panel-footer">...</div>
+        </div>
+
+            <div class="am-panel am-panel-default">
+                <div class="am-panel-hd">
+                    <h4 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#do-not-say-1'}">
+                        ...
+                    </h4>
+                </div>
+                <div id="do-not-say-1" class="am-panel-collapse am-collapse">
+                    <div class="am-panel-bd">
+                        ...
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="am-u-sm-6 am-u-md-8 am-u-lg-9">
+        <div class="articles">
+            <div class="center">
+                <div class="empty">
+                    <header class="article-header">
+                        <h1 itemprop="name">
+                            <a class="article-title" href="#" target="_blank">&nbsp;</a>
+                        </h1>
+                        <div class="article-meta row">
+                            <span class="articleType am-badge am-badge-success">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+                        </div>
+                    </header>
+                    <div class="article-entry" style="height: 200px">
+                    </div>
+                    <div class="read-all">
+                        <a href="#" target="_blank">阅读全文 <i class="am-icon-angle-double-right"></i></a>
+                    </div>
+                    <hr>
+                    <div class="article-tags">
+                        <i class="am-icon-tag"><a class="tag" href="#"> &nbsp;&nbsp;&nbsp;&nbsp;</a></i>
+                        <i class="am-icon-tag"><a class="tag" href="#"> &nbsp;&nbsp;&nbsp;&nbsp;</a></i>
+                        <!--<span class="likes"><i class="am-icon-heart"> 个喜欢</i></span>-->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="my-row" id="page-father">
+            <div id="pagination">
+                <ul class="am-pagination  am-pagination-centered">
+                    <li class="am-disabled"><a href="#">&laquo; 上一页</a></li>
+                    <li class="am-active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">下一页 &raquo;</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="blog-footer ">
+    <div class="am-g am-g-fixed blog-fixed am-u-sm-centered blog-footer-padding">
+        <div class="am-u-sm-12 am-u-md-4- am-u-lg-4">
+            <h3>模板简介</h3>
+            <p class="am-text-sm">这是一个使用amazeUI做的简单的前端模板。<br> 博客/ 资讯类 前端模板 <br> 支持响应式，多种布局，包括主页、文章页、媒体页、分类页等<br>嗯嗯嗯，不知道说啥了。外面的世界真精彩<br><br>
+                Amaze UI 使用 MIT 许可证发布，用户可以自由使用、复制、修改、合并、出版发行、散布、再授权及贩售 Amaze UI 及其副本。</p>
+        </div>
+        <div class="am-u-sm-12 am-u-md-4- am-u-lg-4">
+            <h3>社交账号</h3>
+            <p>
+                <a href=""><span class="am-icon-qq am-icon-fw am-primary blog-icon blog-icon"></span></a>
+                <a href=""><span class="am-icon-github am-icon-fw blog-icon blog-icon"></span></a>
+                <a href=""><span class="am-icon-weibo am-icon-fw blog-icon blog-icon"></span></a>
+                <a href=""><span class="am-icon-reddit am-icon-fw blog-icon blog-icon"></span></a>
+                <a href=""><span class="am-icon-weixin am-icon-fw blog-icon blog-icon"></span></a>
+            </p>
+            <h3>Credits</h3>
+            <p>我们追求卓越，然时间、经验、能力有限。Amaze UI 有很多不足的地方，希望大家包容、不吝赐教，给我们提意见、建议。感谢你们！</p>
+        </div>
+        <div class="am-u-sm-12 am-u-md-4- am-u-lg-4">
+            <h1>我们站在巨人的肩膀上</h1>
+            <h3>Heroes</h3>
+            <p>
+            <ul>
+                <li>jQuery</li>
+                <li>Zepto.js</li>
+                <li>Seajs</li>
+                <li>LESS</li>
+                <li>...</li>
+            </ul>
+            </p>
+        </div>
+    </div>
+    <div class="blog-text-center">© 2015 AllMobilize, Inc. Licensed under MIT license. Made with love By LWXYFER</div>
+</footer>
+
+<script src="js/index.js"></script>
+<!--<script src="js/all.js"></script>-->
+<script src="js/plugs_paging.js"></script>
+</body>
+</html>
