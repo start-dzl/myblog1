@@ -34,3 +34,13 @@
 #change_password_cancel_btn{
     margin: 10px auto 10px auto;
 }
+/*登陆显示图片*/
+.card-show-img img{
+    width: 150px;
+    margin: 20px 0 0 0;
+}
+.login-show-img{
+    height:250px;
+    width:520px;
+    margin: -20px 0 0 0;
+}

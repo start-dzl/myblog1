@@ -1,6 +1,7 @@
 package com.dzl.myblog.mapper;
 
 import com.dzl.myblog.entity.Article;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -23,5 +24,11 @@ public interface ArticleMapper {
 
     @Select("select * from article where articleId=#{articleId}")
     Article getArticleByArticleId(@Param("articleId") long articleId);
+
+    @Select("select id,articleId,originalAuthor,articleTitle,articleCategories,publishDate from article order by id desc")
+    List<Article> getArticleManagement();
+
+    @Delete("delete from article where id=#deleteArticle")
+    int deleteArticleById(@Param("deleteArticle") int deleteArticle);
 
 }

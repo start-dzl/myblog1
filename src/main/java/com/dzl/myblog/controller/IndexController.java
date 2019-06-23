@@ -1,7 +1,9 @@
 package com.dzl.myblog.controller;
 
 import com.dzl.myblog.service.ArticleService;
+import com.dzl.myblog.service.VisitorService;
 import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,12 +11,16 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
 @Controller
 public class IndexController {
     @Autowired
     ArticleService articleService;
+
+    @Autowired
+    VisitorService visitorService;
 
     /**
      * 分页获得当前页文章
@@ -56,5 +62,28 @@ public class IndexController {
         response.setHeader("articleId",String.valueOf(articleId));
         return "show";
     }
+
+    /**
+     * 增加访客量
+     * @return  网站总访问量以及访客量
+     */
+    @GetMapping("/getVisitorNumByPageName")
+    public @ResponseBody
+    JSONObject getVisitorNumByPageName(HttpServletRequest request,
+                                       @RequestParam("pageName") String pageName) throws UnsupportedEncodingException {
+
+        int index = pageName.indexOf("/");
+        if(index == -1){
+            pageName = "visitorWithoutArticle";
+        } else {
+            String subPageName = pageName.substring(0, index);
+            if("archives".equals(subPageName) || "categories".equals(subPageName) || "tags".equals(subPageName) || "login".equals(subPageName) || "register".equals(subPageName)){
+                pageName = "visitorWithoutArticle";
+            }
+        }
+        visitorService.addVisitorNumByPageName(pageName, request);
+        return visitorService.getVisitorNumByPageName(pageName);
+    }
+
 
 }

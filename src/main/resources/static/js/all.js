@@ -117,7 +117,7 @@
         }
     });
 
-    //点击右侧栏获得日志、分类、标签数目以及微信公众号图片
+   /* //点击右侧栏获得日志、分类、标签数目以及微信公众号图片
     $('#sidebar_toggle').click(function () {
         $.ajax({
             type:'get',
@@ -160,7 +160,7 @@
         },
         error:function () {
         }
-    });
+    });*/
 
     //反馈
     $('.feedbackClick').click(function () {
@@ -200,7 +200,7 @@
     });
 
 
-    //图片懒加载
+  /*  //图片懒加载
     $(function() {
         // 获取window的引用:
         var $window = $(window);
@@ -238,4 +238,4 @@
         $window.scroll(onScroll);
         // 手动触发一次:
         onScroll();
-    });
+    });*/

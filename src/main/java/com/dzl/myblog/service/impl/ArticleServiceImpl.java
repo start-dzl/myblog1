@@ -4,6 +4,7 @@ import com.dzl.myblog.component.StringAndArray;
 import com.dzl.myblog.entity.Article;
 import com.dzl.myblog.mapper.ArticleMapper;
 import com.dzl.myblog.service.ArticleService;
+import com.dzl.myblog.service.VisitorService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import net.sf.json.JSONArray;
@@ -24,6 +25,8 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Autowired
     ArticleMapper articleMapper;
+    @Autowired
+    VisitorService visitorService;
 
     @Override
     public JSONArray findAllArticles(String rows, String pageNo) {
@@ -126,5 +129,41 @@ public class ArticleServiceImpl implements ArticleService {
             logger.error("获取文章id " + articleId + " 失败");
             return jsonObject;
         }
+    }
+
+    @Override
+    public JSONObject getArticleManagement(int rows, int pageNum) {
+
+        PageHelper.startPage(pageNum,rows);
+        List<Article> articles = articleMapper.getArticleManagement();
+        PageInfo<Article> pageInfo = new PageInfo<>(articles);
+        JSONArray returnJsonArray = new JSONArray();
+        JSONObject returnJson = new JSONObject();
+        JSONObject articleJson;
+
+        for(Article article : articles){
+            articleJson = new JSONObject();
+            articleJson.put("id",article.getId());
+            articleJson.put("articleId",article.getArticleId());
+            articleJson.put("originalAuthor",article.getOriginalAuthor());
+            articleJson.put("articleTitle",article.getArticleTitle());
+            articleJson.put("articleCategories",article.getArticleCategories());
+            articleJson.put("publishDate",article.getPublishDate());
+            String pageName = "article/" + article.getArticleId();
+            articleJson.put("visitorNum",visitorService.getNumByPageName(pageName));
+            returnJsonArray.add(articleJson);
+        }
+        returnJson.put("status",200);
+        returnJson.put("result",returnJsonArray);
+        JSONObject pageJson = new JSONObject();
+        pageJson.put("pageNum",pageInfo.getPageNum());
+        pageJson.put("pageSize",pageInfo.getPageSize());
+        pageJson.put("total",pageInfo.getTotal());
+        pageJson.put("pages",pageInfo.getPages());
+        pageJson.put("isFirstPage",pageInfo.isIsFirstPage());
+        pageJson.put("isLastPage",pageInfo.isIsLastPage());
+
+        returnJson.put("pageInfo",pageJson);
+        return returnJson;
     }
 }

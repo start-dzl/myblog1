@@ -27,4 +27,6 @@ public interface ArticleService {
       * @return
       */
      JSONObject getArticleByArticleId(long articleId, String username);
+
+     JSONObject getArticleManagement(int rows, int pageNum);
 }
