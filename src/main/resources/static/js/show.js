@@ -3,8 +3,8 @@
 
     //填充文章
     function putInArticle(data) {
-        $('.zhy-article-top').html('');
-        $('.zhy-article-footer').html('');
+        $('.blog-article-top').html('');
+        $('.blog-article-footer').html('');
         var articleTop = $('<article-top><div class="article-title">' +
             '<h1>' + data.articleTitle + '</h1>' +
             '</div>' +
@@ -21,10 +21,9 @@
             '<div class="article-info article-info-categories">' +
             '<i class="am-icon-folder"> <a class="articleCategoryColor" href="/categories?category=' + data.articleCategories + '">' + data.articleCategories + '</a></i>' +
             '</div>' +
-            '</div></article-top><div class="article-i-say">' +
-            '多年以后，愿你的城市，有清风，有烈酒，也有人是你的归途。<span class="article-i-say-me">--- 张海洋</span>' +
+            '</div>'+
             '</div>');
-        $('.zhy-article-top').append(articleTop);
+        $('.blog-article-top').append(articleTop);
         $("#mdText").text(data.articleContent);
         var wordsView;
         wordsView = editormd.markdownToHTML("wordsView", {
@@ -35,36 +34,7 @@
             flowChart: true,
             sequenceDiagram: true
         });
-        var articleFooter = $('<div class="end-logo">' +
-            '<i class="am-icon-btn am-success am-icon-lg">完</i>' +
-            '</div>' +
-            '<div class="show-weixin">' +
-            '<p><i class="weiXinQuoteLeft am-icon-quote-left "></i></p><br>' +
-            '<p class="show-weixin-pic">' +
-            '<img src="https://zhy-myblog.oss-cn-shenzhen.aliyuncs.com/static/img/weixin.jpg">' +
-            '</p>' +
-            '<p class="show-weixin-pic">欢迎关注我的微信公众号：zhyocean1314</p>' +
-            '<p><i class="weiXinQuoteRight am-icon-quote-right "></i></p>' +
-            '</div>' +
-            '<div>' +
-            '<ul class="post-copyright">' +
-            '<li><strong>本文作者：</strong><span id="authorFooter">' + data.originalAuthor + '</span></li>' +
-            '<li><strong>原文链接：</strong><span id="urlFooter"><a href="' + data.articleUrl + '">' + data.articleUrl + '</a></span></li>' +
-            '<li><strong>版权声明：</strong> 本博客所有文章除特别声明外，均采用<span id="copyRightFooter"><a href="https://creativecommons.org/licenses/by/3.0/cn/" target="_blank"> CC BY 3.0 CN协议</a></span>进行许可。转载请署名作者且注明文章出处。</li>' +
-            '</ul>' +
-            '</div>' +
-            '<div class="article-tags">' +
 
-            '</div>' +
-            '<hr>' +
-            '<div class="two-article">' +
-            '<span class="article-last">' +
-
-            '</span>' +
-            '<span class="article-next">' +
-            '</span>' +
-            '</div>');
-        $('.zhy-article-footer').append(articleFooter);
         var tags = $('<div class="tags"></div>');
         for(var i=0;i<data.articleTags.length;i++){
             var tag = $('<i class="am-icon-tag"></i><a class="articleTagColor" href="/tags?tag=' + data.articleTags[i] + '"> ' + data.articleTags[i] + '</a>');
@@ -105,7 +75,7 @@
             $('.likeHeart').find('i').removeClass("am-icon-heart-o");
             $('.likeHeart').find('i').addClass("am-icon-heart");
         }
-        $('.other').append($('<div class="social-share" data-initialized="true" data-url="https://www.zhyocean.cn/article/' + data.articleId  + '"  data-title="' + data.articleTitle + '">' +
+        $('.other').append($('<div class="social-share" data-initialized="true" data-url="http://129.28.3.86:8082/article/' + data.articleId  + '"  data-title="' + data.articleTitle + '">' +
             '<a href="#" class="social-share-icon icon-qq" data-am-popover="{content: \'分享至QQ好友\', trigger: \'hover focus\'}"></a>' +
             '<a href="#" class="social-share-icon icon-qzone" data-am-popover="{content: \'分享至QQ空间\', trigger: \'hover focus\'}"></a>' +
             '<a href="#" class="social-share-icon icon-wechat"></a>' +
@@ -505,7 +475,7 @@
         }
     });
 
-    //通过文章id和原作者请求评论信息
+   /* //通过文章id和原作者请求评论信息
     $.ajax({
         type:'post',
         url:'/getAllComment',
@@ -519,9 +489,9 @@
         error:function () {
             console.log("请求评论失败");
         }
-    });
+    });*/
 
-    // 文章点赞
+   /* // 文章点赞
     (function ($) {
         $.extend({
             tipsBox: function (options) {
@@ -566,10 +536,10 @@
         setTimeout(function () {
             prop.find('i').removeClass('niceIn');
         }, 1000);
-    }
+    }*/
 
 
-    //喜欢按钮
+   /* //喜欢按钮
     $(".likeBtn").click(function () {
         var $this = $(this);
         $.ajax({
@@ -607,4 +577,4 @@
                 alert("点赞失败！")
             }
         });
-    });
+    });*/

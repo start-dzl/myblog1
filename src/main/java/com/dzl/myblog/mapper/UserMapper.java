@@ -25,4 +25,15 @@ public interface UserMapper {
 
     @Select("select * from user where phone=#{phone}")
     User SelectUserByPhone(@Param("phone") String Phone);
+    @Select("select count(*) from user ")
+    int UseNumberCount();
+
+    @Select("select id from user where phone=#{phone}")
+    int findUserIdByPhone(@Param("phone") String phone);
+
+    @Select("select Role_id from user_role where User_id=#{userId}")
+    List<Object> findRoleIdByUserId(@Param("userId") int userId);
+
+    @Select("select phone from user where username=#{username}")
+    String findPhoneByUsername(@Param("username") String username);
 }

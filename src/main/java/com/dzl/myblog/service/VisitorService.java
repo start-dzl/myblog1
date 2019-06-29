@@ -1,8 +1,10 @@
 package com.dzl.myblog.service;
 
+import com.dzl.myblog.entity.Visitor;
 import net.sf.json.JSONObject;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 public interface VisitorService {
 
@@ -37,4 +39,16 @@ public interface VisitorService {
      * @return
      */
     long getAllVisitor();
+
+    /**
+     * 当文章删除的时候，浏览记录也跟着删除
+     * @param VisitorPage
+     */
+    void deleteVisitorArticlePage(String VisitorPage);
+
+    /**
+     * 获得了热门的文章页
+     * @return
+     */
+    List<Visitor> grtHotVistor();
 }

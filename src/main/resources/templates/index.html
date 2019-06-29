@@ -9,8 +9,6 @@
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
     <meta name="keywords" content="博客,个人,学习,IT">
     <meta name="description" content="dzl">
-
-    <link rel="icon" type="image/x-icon" href="https://zhy-myblog.oss-cn-shenzhen.aliyuncs.com/static/img/favicon.ico">
     <link href="https://lib.baomitu.com/amazeui/2.7.2/css/amazeui.min.css" rel="stylesheet">
     <link href="https://lib.baomitu.com/font-awesome/5.8.0/css/fontawesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/all.css">
@@ -25,86 +23,73 @@
 
 </head>
 <body>
+<div id="app">
+    <div th:replace="header :: header"></div>
 
-<div th:replace="header :: header"></div>
-
-<div class="am-g doc-am-g">
-    <div class="am-u-sm-6 am-u-md-4 am-u-lg-3">
-        <div class="am-panel am-panel-default">
-            <div class="am-panel-hd">
-                <h3 class="am-panel-title"><img src="/img/lang.jpg" class="imgStyle">阿祖</h3>
-            </div>
-            <div class="am-panel-bd">
-                这里是面板其他内容。
-                这里是面板其他内容。
-                这里是面板其他内容。
-                这里是面板其他内容。
-            </div>
-
-            <ul class="am-list am-list-static">
-                <li>...</li>
-            </ul>
-            <div class="am-panel-footer">...</div>
-        </div>
-
-            <div class="am-panel am-panel-default">
-                <div class="am-panel-hd">
-                    <h4 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#do-not-say-1'}">
-                        ...
-                    </h4>
-                </div>
-                <div id="do-not-say-1" class="am-panel-collapse am-collapse">
-                    <div class="am-panel-bd">
-                        ...
+    <div class="am-g">
+        <div class="am-u-sm-12 am-u-lg-3 ">
+            <div id="left">
+                <div class="am-panel am-panel-default">
+                    <div class="am-panel-hd">
+                        <h3 class="am-panel-title"><img src="/img/lang.jpg" class="imgStyle">阿祖</h3>
                     </div>
-                </div>
-            </div>
-    </div>
-    <div class="am-u-sm-6 am-u-md-8 am-u-lg-9">
-        <div class="articles">
-            <div class="center">
-                <div class="empty">
-                    <header class="article-header">
-                        <h1 itemprop="name">
-                            <a class="article-title" href="#" target="_blank">&nbsp;</a>
-                        </h1>
-                        <div class="article-meta row">
-                            <span class="articleType am-badge am-badge-success">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-
+                    <div class="am-panel-bd ">
+                        <div>
+                            <p>行百里者半九十！</p>
+                            <p>努力吧，努力吧。成为更优秀的人！</p>
                         </div>
-                    </header>
-                    <div class="article-entry" style="height: 200px">
                     </div>
-                    <div class="read-all">
-                        <a href="#" target="_blank">阅读全文 <i class="am-icon-angle-double-right"></i></a>
+
+                    <div class="am-panel-bd">
+                        <hr style="margin: -30px 10px 10px 10px">
+                        <ul class="am-avg-sm-4">
+                            <div class="am-u-sm-12 am-u-lg-3"><a href="https://github.com/start-dzl"><span
+                                    class="am-icon-github"></span></a></div>
+                            <div class="am-u-sm-12 am-u-lg-3"><a href=""><span class="am-icon-weibo  "></span></a></div>
+                            <div class="am-u-sm-12 am-u-lg-3"><a href=""><span class="am-icon-reddit  "></span></a></div>
+                            <div class="am-u-sm-12 am-u-lg-3"><a href=""><span class="am-icon-weixin"></span></a></div>
+                        </ul>
+
                     </div>
-                    <hr>
-                    <div class="article-tags">
-                        <i class="am-icon-tag"><a class="tag" href="#"> &nbsp;&nbsp;&nbsp;&nbsp;</a></i>
-                        <i class="am-icon-tag"><a class="tag" href="#"> &nbsp;&nbsp;&nbsp;&nbsp;</a></i>
-                        <!--<span class="likes"><i class="am-icon-heart"> 个喜欢</i></span>-->
-                    </div>
+
+                </div>
+
+                <div class="am-panel am-panel-default">
+                    <div class="am-panel-hd">热门文章</div>
+                    <ul class="am-list blog-list">
+
+                    </ul>
                 </div>
             </div>
 
         </div>
-        <div class="my-row" id="page-father">
-            <div id="pagination">
-                <ul class="am-pagination  am-pagination-centered">
-                    <li class="am-disabled"><a href="#">&laquo; 上一页</a></li>
-                    <li class="am-active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">下一页 &raquo;</a></li>
-                </ul>
+        <div class="am-u-sm-12 am-u-lg-9">
+
+            <div class="articles">
+                <h1 class="bg-Title">
+                    <div><a class="bg-myStory-a">文章</a></div>
+                </h1>
+            </div>
+            <div class="my-row" id="page-father">
+                <div id="pagination">
+                    <ul class="am-pagination  am-pagination-centered">
+                        <li class="am-disabled"><a href="#">&laquo; 上一页</a></li>
+                        <li class="am-active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">下一页 &raquo;</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
+
+    <div class="clear"></div>
+    <!--引入共有底部-->
+    <div th:replace="footer :: footer"></div>
 </div>
-<!--引入共有底部-->
-<div th:replace="footer :: footer"></div>
 
 <script src="js/index.js"></script>
 <script src="js/all.js"></script>

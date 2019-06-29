@@ -425,7 +425,71 @@ a.tag:hover{
     background:repeating-linear-gradient(45deg, #74ccff, #74ccff 15px, #bba985 0, #bba985 30px);
 }
 .bg-myGirl{
-    background:repeating-linear-gradient(45deg, #ffbb33, #fb3 15px, #58a 0,#58a 30px);
+     background:repeating-linear-gradient(45deg, #ffbb33, #fb3 15px, #58a 0,#58a 30px);
+ }
+.bg-Title{
+    background:repeating-linear-gradient(45deg, #2ae0c8, #2ae0c7 15px, #fbb8ac 0,#fbb8ad 30px);
+    font-size: 26px;
+    text-align: center;
+    height: 60px;
+    padding: 15px 20px 15px;
+    border-radius: 10px 10px 10px 10px;
+
+}
+.bg-tag{
+    background:#cbf5fb;
+    text-align: center;
+    padding: 15px 20px 15px;
+    border-radius: 10px 10px 10px 10px;
+
+}
+.UserIco{
+    margin: 5px;
+}
+.style-one {/*内嵌水平线*/
+
+
+    width:80%;
+
+    margin:0 auto;
+
+    border: 0;
+
+    height: 0;
+
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+
+}
+
+.style-two {/*透明渐变水平线*/
+
+    width:80%;
+
+    margin:0 auto;
+
+    border: 0;
+
+    height: 1px;
+
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+
+}
+.style-three{/*渐变*/
+
+    width:80%;
+
+    margin:0 auto;
+
+    border: 0;
+
+    height: 1px;
+
+    background: #333;
+
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+
 }
 
 /*background:#eee;*/

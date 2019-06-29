@@ -1,14 +1,12 @@
 package com.dzl.myblog.entity;
 
-
 import lombok.Data;
 
 @Data
-public class Role {
+public class ArticleCategory {
 
     private int id;
 
-
-    private String name;
+    private String categoryName;
 
 }

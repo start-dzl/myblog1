@@ -38,9 +38,9 @@ public class AdminIndexControl {
     @GetMapping("/deleteArticle")
     @PreAuthorize("hasRole('ROLE_SUPERADMIN')")
     @ResponseBody
-    public int deleteArticle(@RequestParam("id") String id)
+    public int deleteArticle(@RequestParam("id") int id)
     {
-        return 0;
+        return articleService.deleteArticleById(id);
     }
 
 }

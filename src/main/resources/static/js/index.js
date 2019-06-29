@@ -26,10 +26,22 @@ window.onload=function(){
         timer=setInterval(next,3000);
     }
 };
+//填充热门文章
+function putInHotArticle(data)
+{
+    var bloglist = $('.blog-list');
+    $.each(data, function (index, obj) {
+            var center = $(
+                '<li>'+
+                '<a  href="' + obj['thisArticleUrl'] + '">' + obj['articleTitle'] + '</a>' +
+                '</li>'
+            )
+            bloglist.append(center);
+    })
+}
 
 //填充文章
 function putInArticle(data) {
-    $('.articles').empty();
     var articles = $('.articles');
     $.each(data, function (index, obj) {
         if(index != (data.length) - 1){
@@ -38,18 +50,6 @@ function putInArticle(data) {
                 '<h1 itemprop="name">' +
                 '<a class="article-title" href="' + obj['thisArticleUrl'] + '" target="_blank">' + obj['articleTitle'] + '</a>' +
                 '</h1>' +
-                '<div class="article-meta row">' +
-                '<span class="articleType am-badge am-badge-success">' + obj['articleType'] + '</span>' +
-                '<div class="articlePublishDate">' +
-                '<i class="am-icon-calendar"><a class="linkColor" href="/archives?archive=' + obj['publishDate'] + '"> ' + obj['publishDate'] + '</a></i>' +
-                '</div>' +
-                '<div class="originalAuthor">' +
-                '<i class="am-icon-user"> ' + obj['originalAuthor'] + '</i>' +
-                '</div>' +
-                '<div class="categories">' +
-                '<i class="am-icon-folder"><a class="linkColor" href="/categories?category=' + obj['articleCategories'] + '"> ' + obj['articleCategories'] + '</a></i>' +
-                '</div>' +
-                '</div>' +
                 '</header>' +
                 '<div class="article-entry">' +
                 obj['articleTabloid'] +
@@ -57,7 +57,7 @@ function putInArticle(data) {
                 '<div class="read-all">' +
                 '<a href="' + obj['thisArticleUrl'] + '" target="_blank">阅读全文 <i class="am-icon-angle-double-right"></i></a>' +
                 '</div>' +
-                '<hr>' +
+                '<hr class="style-two">' +
                 '<div class="article-tags">' +
 
                 '</div>' +
@@ -73,6 +73,26 @@ function putInArticle(data) {
         }
     })
 
+}
+function ajaxHotArt() {
+    $.ajax(
+        {
+            type:'get',
+            url:'/gethotAtricle',
+            dataType: 'json',
+            data: {
+
+            },
+            success:function (data) {
+                putInHotArticle(data);
+                scrollTo(0,0);//回到顶部
+            },
+            error: function () {
+                alert("获得热门文章失败！");
+            }
+        }
+    )
+    
 }
 
 //首页文章分页请求
@@ -109,3 +129,4 @@ function ajaxFirst(currentPage) {
 }
 
 ajaxFirst(1);
+ajaxHotArt();

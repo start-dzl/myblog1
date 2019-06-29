@@ -1,5 +1,6 @@
 package com.dzl.myblog.service.impl;
 
+import com.dzl.myblog.entity.Visitor;
 import com.dzl.myblog.mapper.VisitorMapper;
 import com.dzl.myblog.service.VisitorService;
 import net.sf.json.JSONObject;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Service
 public class VisitorServiceImpl implements VisitorService {
@@ -72,6 +74,24 @@ public class VisitorServiceImpl implements VisitorService {
     @Override
     public long getAllVisitor() {
         return visitorMapper.getAllVisitor();
+    }
+
+    @Override
+    public void deleteVisitorArticlePage(String VisitorPage) {
+
+        if(VisitorPage.equals("totalVisitor")||VisitorPage.equals("visitorWithoutArticle"))
+        {
+            return;
+        }else
+        {
+            visitorMapper.deleteVisitorArtcle(VisitorPage);
+        }
+
+    }
+
+    @Override
+    public List<Visitor> grtHotVistor() {
+        return visitorMapper.getHotAtrcle();
     }
 
 }

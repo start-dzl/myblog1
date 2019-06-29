@@ -40,7 +40,7 @@
         });
 
     var publishBtn = $('.publishBtn');
-    var articleTitle = $('#zhy-editor-title');
+    var articleTitle = $('#blog-editor-title');
     var articleContent = $('#my-editormd-html-code');
     var noticeBoxTitle = $('.notice-box-title');
     var noticeBoxContent = $('.notice-box-content');
