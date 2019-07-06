@@ -990,7 +990,7 @@ html,body{
 
   height: 100%;*/
   flex-grow: 1;
-  background:url("/img/backtag.jpg")  no-repeat center center;
+  background:url("https://dengzlcos-1253188131.cos.ap-shanghai.myqcloud.com/img/backtag.jpg")  no-repeat center center;
   background-size:cover;
   background-attachment:fixed;
   background-color: #fff5ea;
