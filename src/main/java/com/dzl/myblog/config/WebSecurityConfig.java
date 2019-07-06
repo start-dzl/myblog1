@@ -11,11 +11,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-/**
- * @author: zhangocean
- * @Date: 2018/6/5 18:45
- * Describe: SpringSecurity配置
- */
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -58,5 +53,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout().logoutUrl("/logout").logoutSuccessUrl("/");
 
         http.csrf().disable();
+        http.headers().frameOptions().deny();
     }
 }

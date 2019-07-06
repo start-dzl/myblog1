@@ -6,6 +6,7 @@ import com.dzl.myblog.mapper.ArticleMapper;
 import com.dzl.myblog.mapper.VisitorMapper;
 import com.dzl.myblog.service.ArticleService;
 import com.dzl.myblog.service.VisitorService;
+import com.dzl.myblog.utils.TransCodingUtil;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.slf4j.Logger;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
@@ -61,5 +63,21 @@ public class ArticleController {
             AtrcleIdList.add(AtrcleId);
         }
         return articleService.getHorArticleByArticleId(AtrcleIdList);
+    }
+    @PostMapping("/getTagArticle")
+    @ResponseBody
+    public JSONObject getTagArticle(@RequestParam("tag") String tag, HttpServletRequest request)
+    {
+        try {
+            tag = TransCodingUtil.unicodeToString(tag);
+        } catch (Exception e){
+        }
+        if("".equals(tag)){
+            return null;
+        } else {
+            int rows = Integer.parseInt(request.getParameter("rows"));
+            int pageNum = Integer.parseInt(request.getParameter("pageNum"));
+            return articleService.findArticlebyTag(tag, rows, pageNum);
+        }
     }
 }

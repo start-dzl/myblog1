@@ -15,10 +15,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import com.dzl.myblog.utils.TimeUtil;
 
@@ -38,6 +35,9 @@ public class ArticleServiceImpl implements ArticleService {
 
         List<Article> articles = articleMapper.finhotArticlebyId(ArticleList);
         List<Map<String, Object>> hutArticles = new ArrayList<>();
+
+        Map<String, Integer> aaa = new HashMap<>();
+
         Map<String, Object> map;
         for (Article article : articles) {
             map = new HashMap<>();
@@ -49,6 +49,50 @@ public class ArticleServiceImpl implements ArticleService {
         JSONArray jsonArray = JSONArray.fromObject(hutArticles);
         return jsonArray;
     }
+
+    @Override
+    public JSONObject findArticlebyTag(String Tag, int rows, int pageNum) {
+
+        PageHelper.startPage(pageNum, rows);
+        List<Article> articles = articleMapper.findArticlebyTag(Tag);
+        PageInfo<Article> pageInfo = new PageInfo<>(articles);
+
+        JSONObject jsTag;
+        JSONArray jsonArray = new JSONArray();
+
+        for (Article article : articles) {
+            String[] Tags = StringAndArray.stringToArray(article.getArticleTags());
+            for (String str : Tags) {
+
+                if (str.equals(Tag)) {
+                    jsTag = new JSONObject();
+                    jsTag.put("articleId", article.getArticleId());
+                    jsTag.put("articleTitle", article.getArticleTitle());
+                    jsTag.put("publishDate", article.getPublishDate());
+                    jsTag.put("articleTags", Tags);
+                    jsTag.put("thisArticleUrl", "/article/" + article.getArticleId());
+                    jsonArray.add(jsTag);
+                    break;
+                }
+            }
+        }
+        JSONObject pageJson = new JSONObject();
+        pageJson.put("pageNum", pageInfo.getPageNum());
+        pageJson.put("pageSize", pageInfo.getPageSize());
+        pageJson.put("total", pageInfo.getTotal());
+        pageJson.put("pages", pageInfo.getPages());
+        pageJson.put("isFirstPage", pageInfo.isIsFirstPage());
+        pageJson.put("isLastPage", pageInfo.isIsLastPage());
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("status", 201);
+        jsonObject.put("result", jsonArray);
+        jsonObject.put("tag", Tag);
+        jsonObject.put("pageInfo", pageJson);
+
+        return jsonObject;
+    }
+
 
     @Override
     public JSONArray findAllArticles(String rows, String pageNo) {
@@ -258,7 +302,7 @@ public class ArticleServiceImpl implements ArticleService {
             String[] tagsArray = StringAndArray.stringToArray(article.getArticleTags());
             articleJson = new JSONObject();
             articleJson.put("articleId", article.getArticleId());
-            articleJson.put("originalAuthor", article.getOriginalAuthor());
+            articleJson.put("thisArticleUrl", "/article/" + article.getArticleId());
             articleJson.put("articleTitle", article.getArticleTitle());
             articleJson.put("articleCategories", article.getArticleCategories());
             articleJson.put("publishDate", article.getPublishDate());

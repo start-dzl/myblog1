@@ -39,6 +39,7 @@ public class ArticleCategoryControl {
      * @return
      */
     @GetMapping("/findCategoriesNameAndArticleNum")
+    @ResponseBody
     public JSONObject findCategoriesNameAndArticleNum(){
         return articleCategoryService.findCategoriesNameAndArticleNum();
     }
@@ -48,6 +49,7 @@ public class ArticleCategoryControl {
      * @return
      */
     @GetMapping("/getCategoryArticle")
+    @ResponseBody
     public JSONObject getCategoryArticle(@RequestParam("category") String category,
                                          HttpServletRequest request){
 

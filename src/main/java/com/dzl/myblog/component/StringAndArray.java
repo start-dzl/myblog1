@@ -2,11 +2,7 @@ package com.dzl.myblog.component;
 
 import org.springframework.stereotype.Component;
 
-/**
- * @author: zhangocean
- * @Date: 2018/6/24 14:59
- * Describe: 字符串与字符串数组之间的转换
- */
+
 @Component
 public class StringAndArray {
 

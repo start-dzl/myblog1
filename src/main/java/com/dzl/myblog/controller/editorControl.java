@@ -6,6 +6,7 @@ import com.dzl.myblog.service.ArticleService;
 import com.dzl.myblog.service.UserService;
 import com.dzl.myblog.utils.BuildArticleTabloidUtil;
 import net.sf.json.JSONObject;
+import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
 import java.security.Principal;
 import java.util.HashMap;
@@ -60,7 +62,8 @@ public class editorControl {
             //设置返回头后页面才能获取返回url
             response.setHeader("X-Frame-Options", "SAMEORIGIN");
 
-            FileUtil fileUtil = new FileUtil();
+            //有对象存储的方法
+            /*FileUtil fileUtil = new FileUtil();
             String filePath = this.getClass().getResource("/").getPath().substring(1) + "blogImg/";
             String fileContentType = file.getContentType();
             String fileExtension = fileContentType.substring(fileContentType.indexOf("/") + 1);
@@ -68,7 +71,25 @@ public class editorControl {
             String fileName = timeUtil.getLongTime() + "." + fileExtension;
 
             String subCatalog = "blogArticles/" + new TimeUtil().getFormatDateForThree();
-            String fileUrl = fileUtil.uploadFile(fileUtil.multipartFileToFile(file, filePath, fileName), subCatalog);
+            String fileUrl = fileUtil.uploadFile(fileUtil.multipartFileToFile(file, filePath, fileName), subCatalog);*/
+
+           // String rootPath = this.getClass().getResource("/").getPath().substring(1) + "blogImg/";
+            /*String rootPath = request.getSession().getServletContext().getRealPath("/resources/upload/");*/
+
+            /**
+             * 文件路径不存在则需要创建文件路径不好用，之后改成腾讯cos对象存储
+             */
+            String rootPath = this.getClass().getResource("/").getPath().substring(1) + "blogImg/";
+            File filePath=new File(rootPath);
+            if(!filePath.exists()){
+                filePath.mkdirs();
+            }
+             System.out.println(rootPath);
+            //最终文件名
+            File realFile=new File(rootPath+ File.separator+file.getOriginalFilename());
+            FileUtils.copyInputStreamToFile(file.getInputStream(), realFile);
+
+            String fileUrl="blogImg/" + file.getOriginalFilename();
 
             resultMap.put("success", 1);
             resultMap.put("message", "上传成功");

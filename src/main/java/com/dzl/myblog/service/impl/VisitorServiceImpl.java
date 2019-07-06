@@ -25,7 +25,7 @@ public class VisitorServiceImpl implements VisitorService {
     public void addVisitorNumByPageName(String pageName, HttpServletRequest request) {
 
         String visitor;
-        if("visitorVolume".equals(pageName)){
+        if("visitorWithoutArticle".equals(pageName)){
             visitor = (String) request.getSession().getAttribute("visitor");
             if(visitor == null){
                 visitorMapper.updateVisitorNumByTotalVisitorAndPageName(pageName);

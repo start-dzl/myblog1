@@ -106,6 +106,13 @@ public interface ArticleService {
      */
     JSONArray getHorArticleByArticleId(List<String> ArticleList);
 
+    /**
+     * 根据标签获得文章
+     * @param Tag
+     * @return
+     */
+    JSONObject findArticlebyTag(String Tag,int rows, int pageNum);
+
 
 
 

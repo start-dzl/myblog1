@@ -1,7 +1,7 @@
 
     var tag="";
 
-    //添加所有标签
+    /*//添加所有标签
     function putInAllTags(data) {
         var allTags = $('.allTags');
         allTags.empty();
@@ -16,61 +16,47 @@
             allTagsCloud.append($('<a href="/tags?tag=' + obj['tagName'] + '" style="font-size:' + obj['tagSize'] + 'px">' + obj['tagName'] + '</a>'));
         });
         allTags.append(allTagsCloud);
-    }
+    }*/
 
     //添加该标签的所有文章信息
     function putInTagArticleInfo(data) {
-        var siteInner = $('.site-inner');
-        siteInner.empty();
-        var timeLine = $('<div class="timeline timeline-wrap"></div>');
-        timeLine.append($('<div class="timeline-row">' +
-            '<span class="node" style="-webkit-box-sizing: content-box;-moz-box-sizing: content-box;box-sizing: content-box;">' +
-            '<i class="am-icon-tag"></i>' +
-            '</span>' +
-            '<h1 class="title  am-animation-slide-top"># '+ data['tag'] + '</h1>' +
-            '</div>'));
-        $.each(data['result'],function (index,obj) {
-            
-            var timelineRowMajor = $('<div class="timeline-row-major"></div>');
-            timelineRowMajor.append($('<span class="node am-animation-slide-top am-animation-delay-1"></span>'));
-            var content = $('<div class="content am-comment-main am-animation-slide-top am-animation-delay-1"></div>');
-            content.append($('<header class="am-comment-hd" style="background: #fff">' +
-                '<div class="contentTitle am-comment-meta">' +
-                '<a href="/article/' + obj['articleId'] +'">' + obj['articleTitle'] + '</a>' +
+        var archiveswrap = $('.archives-wrap');
+        archiveswrap.empty();
+        var Taghead = $('<h1 class="Taghead">'+data['tag']+'</h1>'
+        +'<div class="archives"></div>'
+        );
+        archiveswrap.append(Taghead);
+        var archives = $('.archives');
+        $.each(data['result'],function (index,obj){
+            var acticle=($(
+               '<article class="archive-article ">'+
+                '<div>'+
+                '<header>'+
+                '<div class="article-meta">'+
+                '<a class="archive-article-date"><time itemprop="datePublished">'+obj['publishDate']+'</time>' +
+                '</a>' +
+                '</div>'+
+                '<h1 >' +
+                '<a target="_blank" class="article-title" href="' + obj['thisArticleUrl']+ '">'+obj['articleTitle']+'</a>' +
+                '</h1>'+
+                '<div class="article-info info-on-archive">' +
+                '<div class="article-tag tagcloud">' +
+                '<ul class="article-tag-list">'+
+                ' </ul>' +
                 '</div>' +
-                '</header>'));
-            var amCommentBd = $('<div class="am-comment-bd"></div>');
-            amCommentBd.append($('<i class="am-icon-calendar"> <a href="/archives?archive=' + obj['publishDate'] + '">' + obj['publishDate'] + '</a></i>' +
-                '<i class="am-icon-folder"> <a href="/categories?category=' + obj['articleCategories'] + '">' + obj['articleCategories'] + '</a></i>'));
-            var amCommentBdTags = $('<i class="am-comment-bd-tags am-icon-tag"></i>')
+                '</div>' +
+                '<div class="clearfix"></div>' +
+                '</header>' +
+                '</div>' +
+                '</article>'
+            ));
+            archives.append(acticle);
+            var articletaglist = $('.article-tag-list');
             for(var i=0;i<obj['articleTags'].length;i++){
-                var tag = $('<a href="/tags?tag=' + obj['articleTags'][i] + '">' + obj['articleTags'][i] + '</a>');
-                amCommentBdTags.append(tag);
-                if(i != (obj['articleTags'].length-1)){
-                    amCommentBdTags.append(",");
-                }
+                var articleTag = $('<li class="article-tag-list-item"><a class="article-tag-list-link color0 color6 color3" href="/tags?tag=' + obj['articleTags'][i] + '"> ' + obj['articleTags'][i] + '</a></li>');
+                articletaglist.eq(index).append(articleTag);
             }
-            amCommentBd.append(amCommentBdTags);
-            content.append(amCommentBd);
-            timelineRowMajor.append(content);
-            timeLine.append(timelineRowMajor);
-        });
-
-        siteInner.append(timeLine);
-        siteInner.append($('<div class="my-row" id="page-father">' +
-            '<div id="pagination">' +
-            '<ul class="am-pagination  am-pagination-centered">' +
-            '<li class="am-disabled"><a href="#">&laquo; 上一页</a></li>' +
-            '<li class="am-active"><a href="#">1</a></li>' +
-            '<li><a href="#">2</a></li>' +
-            '<li><a href="#">3</a></li>' +
-            '<li><a href="#">4</a></li>' +
-            '<li><a href="#">5</a></li>' +
-            '<li><a href="#">下一页 &raquo;</a></li>' +
-            '</ul>' +
-            '</div>' +
-            '</div>'));
-
+        })
     }
 
     $.ajax({
@@ -91,7 +77,7 @@
             dataType:'json',
             data:{
                 tag:tag,
-                rows:"10",
+                rows:"5",
                 pageNum:currentPage
             },
             success:function (data) {

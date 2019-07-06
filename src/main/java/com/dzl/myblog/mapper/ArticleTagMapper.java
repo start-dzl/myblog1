@@ -16,7 +16,7 @@ public interface ArticleTagMapper {
     @Insert("insert into article_tag(tagName,tagSize) values(#{tagName},#{tagSize})")
     void insertTag(ArticleTag tag);
 
-    @Select("select IFNULL(max(id),0) from article_tag where tagName=#{tagName}")
+    @Select("select IFNULL(max(id),0) from article_tag where tagName COLLATE utf8_bin=#{tagName}")
     int findIsExitByTagName(@Param("tagName") String tagName);
 
     @Select("select * from article_tag order by id desc")

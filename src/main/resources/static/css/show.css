@@ -42,7 +42,7 @@
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1768px) {
     #wordsView {
         padding: 5px;
     }
@@ -339,4 +339,14 @@ li.L1, li.L3, li.L5, li.L7, li.L9 {
     border-color: #005636;
     padding-bottom: 1px;
     text-decoration: none !important;
+}
+
+.color3 {
+    background: #f5c7b7;
+}
+.color3::before {
+    border-right-color: #f5c7b7;
+}
+.color4 {
+    background: #cfb7c4;
 }

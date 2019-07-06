@@ -68,4 +68,7 @@ public interface ArticleMapper {
             "<foreach item='item' index='index' collection='articleIdList' open='(' separator=',' close=')'> #{item} </foreach></script>")
     List<Article> finhotArticlebyId(@Param("articleIdList") List<String> articleIdList);
 
+    @Select("select articleId,articleTitle,articleTags,publishDate from article where articleTags like '%${tag}%' order by id desc")
+    List<Article> findArticlebyTag(@Param("tag") String tag);
+
 }

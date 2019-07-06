@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:http="http://www.w3.org/1999/xhtml"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <title>主页</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
-    <meta name="keywords" content="博客,个人,学习,IT">
+    <meta name="keywords" content="个人学习测试网站">
     <meta name="description" content="dzl">
     <link href="https://lib.baomitu.com/amazeui/2.7.2/css/amazeui.min.css" rel="stylesheet">
     <link href="https://lib.baomitu.com/font-awesome/5.8.0/css/fontawesome.min.css" rel="stylesheet">
@@ -29,42 +29,61 @@
     <div class="am-g">
         <div class="am-u-sm-12 am-u-lg-3 ">
             <div id="left">
-                <div class="am-panel am-panel-default">
-                    <div class="am-panel-hd">
-                        <h3 class="am-panel-title"><img src="/img/lang.jpg" class="imgStyle">阿祖</h3>
-                    </div>
-                    <div class="am-panel-bd ">
-                        <div>
-                            <p>行百里者半九十！</p>
-                            <p>努力吧，努力吧。成为更优秀的人！</p>
+
+                <div class="blog-sidebar-widget blog-bor">
+                    <h2 class="blog-text-center blog-title"><span>阿祖</span></h2>
+                    <img src="/img/lang.jpg" alt="me" class="blog-entry-img" >
+                    <p>邓祖良</p>
+                    <p>
+                        行百里者半九十
+                    </p><p>2019月6月15日，我决定建立一个属于我自己的博客。在接下来的时间里，我会不断的改进，完善自己的博客。</p>
+                    <hr style="margin: 10px 10px 10px 10px">
+                    <p>
+                        <a href="" data-am-offcanvas="{target: '#doc-oc-demo2', effect: 'push'}"><span class="am-icon-qq   blog-icon"></span></a>
+                        <a href="https://github.com/start-dzl" target="_blank"><span class="am-icon-github  blog-icon"></span></a>
+                        <a href="https://www.weibo.com/u/2351578837" target="_blank"><span class="am-icon-weibo  blog-icon"></span></a>
+                        <a href="" data-am-offcanvas="{target: '#doc-oc-demo2', effect: 'push'}"><span class="am-icon-weixin  blog-icon"></span></a>
+                    </p>
+                    <!--左侧栏-->
+                    <div id="doc-oc-demo2" class="am-offcanvas">
+                        <div class="am-offcanvas-bar">
+                            <div class="am-offcanvas-content" >
+                                <p>
+                                   快扫一扫吧！
+                                </p>
+                                <div >
+                                    <div class="blog-qq-box">
+                                        <p>QQ</p>
+                                        <img src="/img/qq.jpg"  class="qq_code am-img-thumbnail am-radius">
+                                    </div>
+                                    <div class="blog-weixin-box">
+                                        <p>微信</p>
+                                        <img src="/img/weixin.png"  class="weixin_code am-img-thumbnail am-radius">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="am-panel-bd">
-                        <hr style="margin: -30px 10px 10px 10px">
-                        <ul class="am-avg-sm-4">
-                            <div class="am-u-sm-12 am-u-lg-3"><a href="https://github.com/start-dzl"><span
-                                    class="am-icon-github"></span></a></div>
-                            <div class="am-u-sm-12 am-u-lg-3"><a href=""><span class="am-icon-weibo  "></span></a></div>
-                            <div class="am-u-sm-12 am-u-lg-3"><a href=""><span class="am-icon-reddit  "></span></a></div>
-                            <div class="am-u-sm-12 am-u-lg-3"><a href=""><span class="am-icon-weixin"></span></a></div>
-                        </ul>
-
-                    </div>
-
                 </div>
 
                 <div class="am-panel am-panel-default">
-                    <div class="am-panel-hd">热门文章</div>
+                    <div class="am-panel-hd"> <h2 class="blog-text-center"><span>热门文章</span></h2></div>
                     <ul class="am-list blog-list">
 
                     </ul>
                 </div>
+
+                <div class="blog-clear-margin blog-sidebar-widget blog-bor am-g ">
+                    <h2 class="blog-title"><span>标签</span></h2>
+                    <div class="am-u-sm-12 blog-clear-padding" id="IndexTagCloud">
+
+                    </div>
+                </div>
+
             </div>
 
         </div>
         <div class="am-u-sm-12 am-u-lg-9">
-
             <div class="articles">
                 <h1 class="bg-Title">
                     <div><a class="bg-myStory-a">文章</a></div>
@@ -84,6 +103,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 
     <div class="clear"></div>

@@ -110,10 +110,24 @@
             pageName:pageName.substring(1)
         },
         success:function (data) {
-            $("#totalVisitors").html(data['totalVisitor']);
-            $("#visitorVolume").html(data['pageVisitor']);
+           /* $("#totalVisitors").html(data['totalVisitor']);
+            $("#visitorVolume").html(data['pageVisitor']);*/
         },
         error:function () {
+        }
+    });
+
+    $.ajax({
+        type:'get',
+        url:'/findCategoriesName',
+        dataType:'json',
+        data:{
+        },
+        success:function (data) {
+            GatCategory(data);
+        },
+        error:function () {
+
         }
     });
 
@@ -198,7 +212,16 @@
             });
         }
     });
-
+//获得分类
+    function GatCategory(data) {
+        var categoryList=$('.categoryList')
+        categoryList.empty();
+        $.each(data,function (index, obj)
+        {
+            var category=$('<li><a href="/category?category='+ obj + '">'+obj+'</a></li>');
+            categoryList.append(category);
+        })
+    }
 
   /*  //图片懒加载
     $(function() {

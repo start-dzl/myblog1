@@ -8,18 +8,18 @@
         var articleTop = $('<article-top><div class="article-title">' +
             '<h1>' + data.articleTitle + '</h1>' +
             '</div>' +
-            '<div class="article-info row">' +
+            '<div class="article-info row ">' +
             '<div class="article-info article-info-type am-badge am-badge-success">' +
             data.articleType +
             '</div>' +
             '<div class="article-info article-info-publishDate">' +
-            '<i class="am-icon-calendar"><a class="articleCategoryColor" href="/archives?archive=' + data.publishDate + '"> ' + data.publishDate + '</a></i>' +
+            '<i class="am-icon-calendar"><a class="articleCategoryColor" > ' + data.publishDate + '</a></i>' +
             '</div>' +
-            '<div class="article-info article-info-originalAuthor">' +
-            '<i class="am-icon-user"> ' + data.originalAuthor + '</i>' +
+            '<div class="article-info article-info-originalAuthor ">' +
+            '<i class="am-icon-user-md" > ' + data.originalAuthor + '</i>' +
             '</div>' +
             '<div class="article-info article-info-categories">' +
-            '<i class="am-icon-folder"> <a class="articleCategoryColor" href="/categories?category=' + data.articleCategories + '">' + data.articleCategories + '</a></i>' +
+            '<i class="am-icon-th"> <a class="articleCategoryColor" href="/category?category=' + data.articleCategories + '">' + data.articleCategories + '</a></i>' +
             '</div>' +
             '</div>'+
             '</div>');
@@ -75,7 +75,7 @@
             $('.likeHeart').find('i').removeClass("am-icon-heart-o");
             $('.likeHeart').find('i').addClass("am-icon-heart");
         }
-        $('.other').append($('<div class="social-share" data-initialized="true" data-url="http://129.28.3.86:8082/article/' + data.articleId  + '"  data-title="' + data.articleTitle + '">' +
+        $('.other').append($('<div class="social-share" data-initialized="true" data-url="https://www.dengzl.cn/article/' + data.articleId  + '"  data-title="' + data.articleTitle + '">' +
             '<a href="#" class="social-share-icon icon-qq" data-am-popover="{content: \'分享至QQ好友\', trigger: \'hover focus\'}"></a>' +
             '<a href="#" class="social-share-icon icon-qzone" data-am-popover="{content: \'分享至QQ空间\', trigger: \'hover focus\'}"></a>' +
             '<a href="#" class="social-share-icon icon-wechat"></a>' +

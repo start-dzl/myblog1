@@ -35,7 +35,6 @@ public class MyblogApplication extends SpringBootServletInitializer {
     }
 
     @Bean
-
     public TomcatServletWebServerFactory tomcatServletWebServerFactory() {
 
         TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory() {
@@ -76,7 +75,7 @@ public class MyblogApplication extends SpringBootServletInitializer {
 
         connector.setSecure(false);
 
-        connector.setRedirectPort(8082);
+        connector.setRedirectPort(443);
 
         return connector;
 

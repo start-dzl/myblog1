@@ -254,7 +254,7 @@ a {
     text-align:center;
 }
 .blog-bor {
-    border:1px solid #e5e5e5;
+    border:5px solid #e5e5e5;
 }
 .am-topbar-nav>li.am-active>a, .am-topbar-nav>li.am-active>a:focus, .am-topbar-nav>li.am-active>a:hover {
     border-radius: 0;
@@ -277,7 +277,7 @@ a {
 }
 .blog-entry-img {
     padding:0;
-    max-width:100%;
+    max-width:75%;
     height:auto;
 }
 .blog-entry-article {
@@ -366,8 +366,7 @@ h1 span{
     text-align:left;
 }
 .blog-footer {
-    padding:3rem 0 2rem 0;
-    margin-top:5rem;
+
     background-color:#252525;
     color:#fff !important
 }

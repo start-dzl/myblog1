@@ -18,3 +18,36 @@
 .error403Page img{
     width: 50%;
 }
+.error404img{
+     flex-grow: 1;
+     background:url("/img/errorpage/404.jpg")  no-repeat center center;
+     background-size:cover;
+     background-attachment:fixed;
+     background-color: #fff5ea;
+     margin:-20px 0 0 0;
+ }
+.error401img{
+    flex-grow: 1;
+    background:url("/img/errorpage/401.jpg")  no-repeat center center;
+    background-size:cover;
+    background-attachment:fixed;
+    background-color: #fff5ea;
+    margin:-20px 0 0 0;
+}
+.error403img{
+    flex-grow: 1;
+    background:url("/img/errorpage/403.jpg")  no-repeat center center;
+    background-size:cover;
+    background-attachment:fixed;
+    background-color: #fff5ea;
+    margin:-20px 0 0 0;
+}
+.error500img{
+     flex-grow: 1;
+     background:url("/img/errorpage/500.jpg")  no-repeat center center;
+     background-size:cover;
+     background-attachment:fixed;
+     background-color: #fff5ea;
+     margin:-20px 0 0 0;
+ }
+

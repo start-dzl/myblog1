@@ -16,11 +16,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.Date;
 
-/**
- * @author: zhangocean
- * @Date: 2018/6/10 17:45
- * Describe: 阿里云OSS连接
- */
+
 public class AliYunOSSClientUtil {
 
     private static Logger logger = LoggerFactory.getLogger(FileUtil.class);
