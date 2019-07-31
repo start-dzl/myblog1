@@ -4,6 +4,7 @@ import net.sf.json.JSONObject;
 
 public interface ArticeTagService {
 
+
     /**
      * 加入标签
      * @param tags 一群标签

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.security.Principal;
@@ -40,10 +41,12 @@ public class BackController {
             username = principal.getName();
         } catch (NullPointerException e){
             request.getSession().removeAttribute("lastUrl");
-            return "index";
+           return "index";
+
         }
+        Cookie[] cookies = request.getCookies();
         response.setHeader("Access-Control-Allow-Origin", "*");
-        response.setHeader("lastUrl", (String) request.getSession().getAttribute("lastUrl"));
+        response.setHeader("lastUrl", (String) request.getSession().getAttribute("lastUrl"));;
         return "index";
     }
 

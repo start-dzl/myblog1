@@ -3,7 +3,7 @@ package com.dzl.myblog.entity;
 import lombok.Data;
 
 @Data
-public class Article {
+public class Article  {
 
     private static final long serialVersionUID = 1L;
 

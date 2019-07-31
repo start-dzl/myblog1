@@ -34,7 +34,7 @@ public class MyblogApplication extends SpringBootServletInitializer {
         return builder.sources(this.getClass());
     }
 
-    @Bean
+   /* @Bean
     public TomcatServletWebServerFactory tomcatServletWebServerFactory() {
 
         TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory() {
@@ -79,5 +79,5 @@ public class MyblogApplication extends SpringBootServletInitializer {
 
         return connector;
 
-    }
+    }*/
 }

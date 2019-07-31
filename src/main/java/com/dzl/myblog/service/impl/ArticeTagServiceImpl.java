@@ -6,6 +6,8 @@ import com.dzl.myblog.service.ArticeTagService;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,6 +16,7 @@ public class ArticeTagServiceImpl implements ArticeTagService {
 
     @Autowired
     ArticleTagMapper articleTagMapper;
+
 
     @Override
     public void addTags(String[] tags, int tagSize) {
