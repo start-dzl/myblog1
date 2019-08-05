@@ -54,7 +54,7 @@ public interface ArticleMapper {
     @Select("select articleId from article order by id desc limit 1")
     Article findEndArticleId();
 
-    @Insert("insert into article(articleId,author,originalAuthor,articleTitle,publishDate,updateDate,articleContent,articleTags,articleType,articleCategories,articleUrl,articleTabloid,likes,lastArticleId,nextArticleId) " +
+    @Insert("insert into article(articleId,author,originalAuthor,articleTitle,publishDate,updateDate,,articleTags,articleType,articleCategories,articleUrl,articleTabloid,likes,lastArticleId,nextArticleId) " +
             "values(#{articleId},#{author},#{originalAuthor},#{articleTitle},#{publishDate},#{updateDate},#{articleContent},#{articleTags},#{articleType},#{articleCategories},#{articleUrl},#{articleTabloid},#{likes},#{lastArticleId},#{nextArticleId})")
     void insertArticle(Article article);
 
@@ -65,7 +65,7 @@ public interface ArticleMapper {
     void updateArticleNextId(@Param("nextArticleId") long nextArticleId, @Param("articleId") long articleId);
 
     @Select("<script>select articleTitle,articleId from article where articleId in  " +
-            "<foreach item='item' index='index' collection='articleIdList' open='(' separator=',' close=')'> #{item} </foreach></script>")
+            "<foreach item='item' index='index' Ecollection='articleIdList' open='(' separator=',' close=')'> #{item} </foreach></script>")
     List<Article> finhotArticlebyId(@Param("articleIdList") List<String> articleIdList);
 
     @Select("select articleId,articleTitle,articleTags,publishDate from article where articleTags like '%${tag}%' order by id desc")
