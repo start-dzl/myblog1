@@ -5,6 +5,7 @@ import com.dzl.myblog.service.UserService;
 import com.dzl.myblog.service.VisitorService;
 import com.dzl.myblog.utils.TransCodingUtil;
 import lombok.extern.slf4j.Slf4j;
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -69,6 +70,9 @@ public class BackController {
        // returnJson.put("yesterdayVisitor", num);
         returnJson.put("articleNum",articleService.getArticleCount() );
         return returnJson;
+
+
+
     }
     /**
      * 跳转标签页

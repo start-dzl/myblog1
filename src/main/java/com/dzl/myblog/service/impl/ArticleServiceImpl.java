@@ -76,7 +76,8 @@ public class ArticleServiceImpl implements ArticleService {
                 }
             }
         }
-        JSONObject pageJson = new JSONObject();
+        JSONObject pageJson;
+        pageJson = new JSONObject();
         pageJson.put("pageNum", pageInfo.getPageNum());
         pageJson.put("pageSize", pageInfo.getPageSize());
         pageJson.put("total", pageInfo.getTotal());
@@ -84,7 +85,8 @@ public class ArticleServiceImpl implements ArticleService {
         pageJson.put("isFirstPage", pageInfo.isIsFirstPage());
         pageJson.put("isLastPage", pageInfo.isIsLastPage());
 
-        JSONObject jsonObject = new JSONObject();
+        JSONObject jsonObject;
+        jsonObject = new JSONObject();
         jsonObject.put("status", 201);
         jsonObject.put("result", jsonArray);
         jsonObject.put("tag", Tag);
