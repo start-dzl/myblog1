@@ -1,5 +1,12 @@
 stages:
+  - install_deps
   - build
+
+# 安装依赖
+install_deps:
+  stage: install_deps
+  script:
+    - npm install
 
 build_job:
   stage: build
