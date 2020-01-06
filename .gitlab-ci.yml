@@ -2,7 +2,6 @@ image: maven:latest
 
 stages:
   - build
-  - test
   - run
 
 
@@ -14,15 +13,10 @@ cache:
 build:
   stage: build
   script:
-    - mvn $MAVEN_CLI_OPTS compile
-
-test:
-  stage: test
-  script:
-    - mvn $MAVEN_CLI_OPTS test
+    - mvn compile
 
 run:
   stage: run
   script:
-    - mvn $MAVEN_CLI_OPTS package
+    - mvn package
     - java -Dexec.mainClass="com.dzl.myblog.MyblogApplication"
