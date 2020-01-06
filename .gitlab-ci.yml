@@ -1,4 +1,4 @@
-image: maven:latest-jdk11-1
+image: maven:latest
 
 stages:
   - build
@@ -25,4 +25,4 @@ run:
   stage: run
   script:
     - mvn $MAVEN_CLI_OPTS package
-    - mvn $MAVEN_CLI_OPTS exec:java -Dexec.mainClass="com.dzl.myblog.MyblogApplication"
+    - java -Dexec.mainClass="com.dzl.myblog.MyblogApplication"
