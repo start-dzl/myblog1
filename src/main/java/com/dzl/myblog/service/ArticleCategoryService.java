@@ -3,6 +3,8 @@ package com.dzl.myblog.service;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
+import java.util.List;
+
 public interface ArticleCategoryService {
 
 
@@ -16,7 +18,7 @@ public interface ArticleCategoryService {
      * 获得所有的分类
      * @return
      */
-    JSONArray findCategoriesName();
+    List<String> findCategoriesName();
 
     /**
      * 获得分类数目

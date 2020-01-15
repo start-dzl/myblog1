@@ -36,9 +36,8 @@ public class ArticleCategoryServiceImpl implements ArticleCategoryService {
     }
 
     @Override
-    public JSONArray findCategoriesName() {
-        List<String> categoryNames = articleCategoryMapper.findCategoriesName();
-        return JSONArray.fromObject(categoryNames);
+    public List<String>  findCategoriesName() {
+        return articleCategoryMapper.findCategoriesName();
     }
 
     @Override

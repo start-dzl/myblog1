@@ -14,9 +14,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
+import java.util.List;
+
 import com.dzl.myblog.utils.TransCodingUtil;
 
 @Controller
+@ResponseBody
 public class ArticleCategoryControl {
     @Autowired
     ArticleCategoryService articleCategoryService;
@@ -28,8 +31,7 @@ public class ArticleCategoryControl {
      * @return
      */
     @GetMapping("/findCategoriesName")
-    @ResponseBody
-    public JSONArray findCategoriesName(){
+    public List<String> findCategoriesName(){
         return articleCategoryService.findCategoriesName();
     }
 
@@ -39,7 +41,6 @@ public class ArticleCategoryControl {
      * @return
      */
     @GetMapping("/findCategoriesNameAndArticleNum")
-    @ResponseBody
     public JSONObject findCategoriesNameAndArticleNum(){
         return articleCategoryService.findCategoriesNameAndArticleNum();
     }
@@ -49,7 +50,6 @@ public class ArticleCategoryControl {
      * @return
      */
     @GetMapping("/getCategoryArticle")
-    @ResponseBody
     public JSONObject getCategoryArticle(@RequestParam("category") String category,
                                          HttpServletRequest request){
 
