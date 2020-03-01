@@ -1,9 +1,6 @@
 package com.dzl.myblog.controller;
 
-import com.dzl.myblog.entity.Article;
 import com.dzl.myblog.entity.Visitor;
-import com.dzl.myblog.mapper.ArticleMapper;
-import com.dzl.myblog.mapper.VisitorMapper;
 import com.dzl.myblog.service.ArticleService;
 import com.dzl.myblog.service.VisitorService;
 import com.dzl.myblog.utils.TransCodingUtil;
@@ -12,9 +9,7 @@ import net.sf.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v0/clock/in")
 public class ArticleController {
 
     private Logger logger = LoggerFactory.getLogger(ArticleController.class);
@@ -32,46 +26,48 @@ public class ArticleController {
     ArticleService articleService;
     @Autowired
     VisitorService visitorService;
+
     /**
-     *  获取文章
+     * 获取文章
+     *
      * @param articleId 文章id
      * @return
      */
     @PostMapping("/getArticleByArticleId")
     public @ResponseBody
     JSONObject getArticleById(@RequestParam("articleId") String articleId,
-                              @AuthenticationPrincipal Principal principal){
+                              @AuthenticationPrincipal Principal principal) {
         String username = null;
         try {
             username = principal.getName();
-        } catch (NullPointerException e){
+        } catch (NullPointerException e) {
             logger.info("This user is not login");
         }
-        JSONObject jsonObject = articleService.getArticleByArticleId(Long.parseLong(articleId),username);
+        JSONObject jsonObject = articleService.getArticleByArticleId(Long.parseLong(articleId), username);
         return jsonObject;
     }
-    @GetMapping("/gethotAtricle")
-     public @ResponseBody
-    JSONArray GetHotArtcle()
-    {
-        List<String> AtrcleIdList=new ArrayList<>();
-        List<Visitor> hotAtrcle = visitorService.grtHotVistor();
-        for (Visitor vi: hotAtrcle) {
 
-            String AtrcleId=vi.getPageName().substring(8);
+    @GetMapping("/gethotAtricle")
+    public @ResponseBody
+    JSONArray GetHotArtcle() {
+        List<String> AtrcleIdList = new ArrayList<>();
+        List<Visitor> hotAtrcle = visitorService.grtHotVistor();
+        for (Visitor vi : hotAtrcle) {
+
+            String AtrcleId = vi.getPageName().substring(8);
             AtrcleIdList.add(AtrcleId);
         }
         return articleService.getHorArticleByArticleId(AtrcleIdList);
     }
+
     @PostMapping("/getTagArticle")
     @ResponseBody
-    public JSONObject getTagArticle(@RequestParam("tag") String tag, HttpServletRequest request)
-    {
+    public JSONObject getTagArticle(@RequestParam("tag") String tag, HttpServletRequest request) {
         try {
             tag = TransCodingUtil.unicodeToString(tag);
-        } catch (Exception e){
+        } catch (Exception e) {
         }
-        if("".equals(tag)){
+        if ("".equals(tag)) {
             return null;
         } else {
             int rows = Integer.parseInt(request.getParameter("rows"));

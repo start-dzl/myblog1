@@ -54,7 +54,7 @@ public interface ArticleMapper {
     @Select("select articleId from article order by id desc limit 1")
     Article findEndArticleId();
 
-    @Insert("insert into article(articleId,author,originalAuthor,articleTitle,publishDate,updateDate,,articleTags,articleType,articleCategories,articleUrl,articleTabloid,likes,lastArticleId,nextArticleId) " +
+    @Insert("insert into article(articleId,author,originalAuthor,articleTitle,publishDate,updateDate,articleContent,articleTags,articleType,articleCategories,articleUrl,articleTabloid,likes,lastArticleId,nextArticleId) " +
             "values(#{articleId},#{author},#{originalAuthor},#{articleTitle},#{publishDate},#{updateDate},#{articleContent},#{articleTags},#{articleType},#{articleCategories},#{articleUrl},#{articleTabloid},#{likes},#{lastArticleId},#{nextArticleId})")
     void insertArticle(Article article);
 
