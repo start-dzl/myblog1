@@ -2,23 +2,16 @@ package com.dzl.myblog;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.connector.Connector;
-import org.apache.coyote.http11.Http11NioProtocol;
 import org.apache.tomcat.util.descriptor.web.SecurityCollection;
 import org.apache.tomcat.util.descriptor.web.SecurityConstraint;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
-import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-
-import java.io.File;
-import java.io.IOException;
 
 @SpringBootApplication
 @EnableTransactionManagement
@@ -34,7 +27,7 @@ public class MyblogApplication extends SpringBootServletInitializer {
         return builder.sources(this.getClass());
     }
 
-   /* @Bean
+    @Bean
     public TomcatServletWebServerFactory tomcatServletWebServerFactory() {
 
         TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory() {
@@ -79,5 +72,5 @@ public class MyblogApplication extends SpringBootServletInitializer {
 
         return connector;
 
-    }*/
+    }
 }
