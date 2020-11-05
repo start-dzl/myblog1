@@ -1,6 +1,9 @@
 HELP.md
 /target/
 .mvn/wrapper
+/log
+/log/SpringBootDemo/**
+/log/SpringBootDemo
 
 ### STS ###
 .apt_generated
