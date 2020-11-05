@@ -1,0 +1,27 @@
+version: '3'
+services:
+  db:
+    image:  "mysql:latest"
+    restart: always
+    environment:
+      MYSQL_DATABASE: blog
+      MYSQL_ROOT_PASSWORD: 1234
+    volumes:
+      - ./sqldata:/sqldata
+
+  api:
+    image: "registry.cn-hangzhou.aliyuncs.com/dzlxxh/myblog:latest"
+    restart: always
+    ports:
+      - 8080:8080
+      - 443:443
+    volumes:
+      - ./log:/log
+      - ./data:/data
+    links:
+      - db
+    environment:
+      SB_ARGS: "-Dspring.profiles.active=dev \
+       -Dspring.datasource.url=jdbc:mysql://db:3306/blog \
+       -Dspring.datasource.username=root \
+       -Dspring.datasource.password=1234"
