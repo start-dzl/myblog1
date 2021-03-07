@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.dzl</groupId>
     <artifactId>myblog</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>myblog</name>
     <description>Demo project for Spring Boot</description>
 
@@ -194,7 +194,7 @@
                     </repository>
                     <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
                     <force>true</force>
-                    <tag>latest</tag>
+                    <tag>${project.version}</tag>
                     <buildArgs>
                         <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
                     </buildArgs>
