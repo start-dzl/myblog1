@@ -1,13 +1,10 @@
 package com.dzl.myblog.service.impl;
 
-import com.dzl.myblog.entity.ArticleTag;
 import com.dzl.myblog.mapper.ArticleTagMapper;
 import com.dzl.myblog.service.ArticeTagService;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,7 +14,7 @@ public class ArticeTagServiceImpl implements ArticeTagService {
     @Autowired
     ArticleTagMapper articleTagMapper;
 
-
+/*
     @Override
     public void addTags(String[] tags, int tagSize) {
         for(String tag : tags){
@@ -46,5 +43,5 @@ public class ArticeTagServiceImpl implements ArticeTagService {
     @Override
     public int getTagsSizeByTagName(String tagName) {
         return articleTagMapper.getTagsSizeByTagName(tagName);
-    }
+    }*/
 }

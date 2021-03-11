@@ -2,7 +2,6 @@ package com.dzl.myblog.service.impl;
 
 import com.dzl.myblog.component.StringAndArray;
 import com.dzl.myblog.constant.SiteOwner;
-import com.dzl.myblog.entity.Article;
 import com.dzl.myblog.mapper.ArticleMapper;
 import com.dzl.myblog.service.ArticleService;
 import com.dzl.myblog.service.VisitorService;
@@ -30,13 +29,11 @@ public class ArticleServiceImpl implements ArticleService {
     VisitorService visitorService;
 
 
-    @Override
+  /*  @Override
     public JSONArray getHorArticleByArticleId(List<String> ArticleList) {
 
         List<Article> articles = articleMapper.finhotArticlebyId(ArticleList);
         List<Map<String, Object>> hutArticles = new ArrayList<>();
-
-        Map<String, Integer> aaa = new HashMap<>();
 
         Map<String, Object> map;
         for (Article article : articles) {
@@ -168,11 +165,11 @@ public class ArticleServiceImpl implements ArticleService {
             if (username == null) {
                 jsonObject.put("isLiked", 0);
             } else {
-               /* if(articleLikesRecordService.isLiked(articleId,username)){
+               *//* if(articleLikesRecordService.isLiked(articleId,username)){
                     jsonObject.put("isLiked",1);
                 }else {
                     jsonObject.put("isLiked",0);
-                }*/
+                }*//*
             }
             if (lastArticle != null) {
                 jsonObject.put("lastStatus", "200");
@@ -295,9 +292,9 @@ public class ArticleServiceImpl implements ArticleService {
         return jsonObject;
     }
 
-    /**
+    *//**
      * 封装时间线中数据成JsonArray形式
-     */
+     *//*
     private JSONArray timeLineReturn(JSONArray articleJsonArray, List<Article> articles) {
         JSONObject articleJson;
         for (Article article : articles) {
@@ -410,5 +407,5 @@ public class ArticleServiceImpl implements ArticleService {
         if ("nextArticleId".equals(lastOrNext)) {
             articleMapper.updateArticleNextId(lastOrNextArticleId, articleId);
         }
-    }
+    }*/
 }

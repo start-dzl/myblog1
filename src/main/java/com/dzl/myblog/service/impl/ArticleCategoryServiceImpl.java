@@ -18,7 +18,7 @@ public class ArticleCategoryServiceImpl implements ArticleCategoryService {
     @Autowired
     ArticleService articleService;
 
-    @Override
+  /*  @Override
     public JSONObject findCategoriesNameAndArticleNum() {
         List<String> categoryNames = articleCategoryMapper.findCategoriesName();
         JSONObject categoryJson;
@@ -43,5 +43,5 @@ public class ArticleCategoryServiceImpl implements ArticleCategoryService {
     @Override
     public int countCategoriesNum() {
         return articleCategoryMapper.countCategoriesNum();
-    }
+    }*/
 }

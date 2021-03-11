@@ -1,7 +1,5 @@
 package com.dzl.myblog.service.impl;
 
-import com.dzl.myblog.entity.User;
-
 import com.dzl.myblog.mapper.UserMapper;
 import com.dzl.myblog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +13,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     UserMapper userMapper;
 
-    public UserServiceImpl() {
+   /* public UserServiceImpl() {
         super();
     }
 
@@ -53,5 +51,5 @@ public class UserServiceImpl implements UserService {
             }
         }
         return false;
-    }
+    }*/
 }

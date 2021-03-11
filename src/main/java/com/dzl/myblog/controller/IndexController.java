@@ -22,11 +22,11 @@ public class IndexController {
     @Autowired
     VisitorService visitorService;
 
-    /**
+   /* *//**
      * 分页获得当前页文章
      * @param rows 一页的大小
      * @param pageNum 当前页
-     */
+     *//*
     @PostMapping("/myArticles")
     public @ResponseBody
     JSONArray myArticles(@RequestParam("rows") String rows,
@@ -36,9 +36,9 @@ public class IndexController {
 
     }
 
-    /**
+    *//**
      * 跳转到文章显示页
-     */
+     *//*
     @GetMapping("/article/{articleId}")
     public String show(@PathVariable("articleId") long articleId,
                        HttpServletResponse response,
@@ -63,10 +63,10 @@ public class IndexController {
         return "show";
     }
 
-    /**
+    *//**
      * 增加访客量
      * @return  网站总访问量以及访客量
-     */
+     *//*
     @GetMapping("/getVisitorNumByPageName")
     public @ResponseBody
     JSONObject getVisitorNumByPageName(HttpServletRequest request,
@@ -83,7 +83,7 @@ public class IndexController {
         }
         visitorService.addVisitorNumByPageName(pageName, request);
         return visitorService.getVisitorNumByPageName(pageName);
-    }
+    }*/
 
 
 }

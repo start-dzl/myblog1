@@ -1,6 +1,5 @@
 package com.dzl.myblog.controller;
 
-import com.dzl.myblog.entity.Visitor;
 import com.dzl.myblog.service.ArticleService;
 import com.dzl.myblog.service.VisitorService;
 import com.dzl.myblog.utils.TransCodingUtil;
@@ -27,12 +26,12 @@ public class ArticleController {
     @Autowired
     VisitorService visitorService;
 
-    /**
+   /* *//**
      * 获取文章
      *
      * @param articleId 文章id
      * @return
-     */
+     *//*
     @PostMapping("/getArticleByArticleId")
     public @ResponseBody
     JSONObject getArticleById(@RequestParam("articleId") String articleId,
@@ -74,5 +73,5 @@ public class ArticleController {
             int pageNum = Integer.parseInt(request.getParameter("pageNum"));
             return articleService.findArticlebyTag(tag, rows, pageNum);
         }
-    }
+    }*/
 }

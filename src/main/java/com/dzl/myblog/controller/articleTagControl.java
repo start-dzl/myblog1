@@ -12,10 +12,10 @@ public class articleTagControl {
     @Autowired
     ArticeTagService articeTagService;
 
-    @GetMapping("/GetTagCloud")
+   /* @GetMapping("/GetTagCloud")
     @ResponseBody
     public JSONObject GetTagCloud()
     {
         return articeTagService.findTagsCloud();
-    }
+    }*/
 }

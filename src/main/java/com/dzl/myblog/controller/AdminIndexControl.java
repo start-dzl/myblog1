@@ -17,7 +17,7 @@ public class AdminIndexControl {
     @Autowired
     ArticleService articleService;
 
-    @GetMapping("/getArticleManagement")
+   /* @GetMapping("/getArticleManagement")
     @ResponseBody
     public JSONObject getArticleManagement(@AuthenticationPrincipal Principal principal,
                                             @RequestParam("rows") String rows,@RequestParam("pageNum") String pageNum)
@@ -39,6 +39,6 @@ public class AdminIndexControl {
     public int deleteArticle(@RequestParam("id") int id)
     {
         return articleService.deleteArticleById(id);
-    }
+    }*/
 
 }

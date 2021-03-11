@@ -1,6 +1,5 @@
 package com.dzl.myblog.controller;
 import com.dzl.myblog.component.StringAndArray;
-import com.dzl.myblog.entity.Article;
 import com.dzl.myblog.service.ArticeTagService;
 import com.dzl.myblog.service.ArticleService;
 import com.dzl.myblog.service.UserService;
@@ -10,7 +9,6 @@ import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +22,6 @@ import java.security.Principal;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.dzl.myblog.utils.FileUtil;
 import com.dzl.myblog.utils.TimeUtil;
 
 @Controller
@@ -106,11 +103,11 @@ public class editorControl {
     }
 
 
-    /**
+   /* *//**
      * 验证是否有权限写博客
      * @param principal
      * @return
-     */
+     *//*
     @GetMapping("/canYouWrite")
     @ResponseBody
     public int canYouWrite(@AuthenticationPrincipal Principal principal){
@@ -128,9 +125,9 @@ public class editorControl {
         return 0;
     }
 
-    /**
+    *//**
      * 获得是否有未发布的草稿文章或是修改文章
-     */
+     *//*
     @GetMapping("/getDraftArticle")
     @ResponseBody
     public JSONObject getDraftArticle(HttpServletRequest request){
@@ -163,13 +160,13 @@ public class editorControl {
         return returnJson;
     }
 
-    /**
+    *//**
      * 发表博客
      * @param principal 当前登录用户
      * @param article 文章
      * @param request httpServletRequest
      * @return
-     */
+     *//*
     @PostMapping("/publishArticle")
     @ResponseBody
     public JSONObject publishArticle(@AuthenticationPrincipal Principal principal,
@@ -235,7 +232,7 @@ public class editorControl {
 
         returnJson = articleService.insertArticle(article);
         return returnJson;
-    }
+    }*/
 
 
 }

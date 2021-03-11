@@ -32,9 +32,9 @@ public class BackController {
     @Autowired
     ArticleService articleService;
 
-    /**
+   /* *//**
      * 跳转首页
-     */
+     *//*
     @GetMapping("/")
     public String index(HttpServletRequest request, HttpServletResponse response,
                         @AuthenticationPrincipal Principal principal) {
@@ -52,9 +52,9 @@ public class BackController {
         return "index";
     }
 
-    /**
+    *//**
      * 百度认证
-     */
+     *//*
     @GetMapping("/baidu_verify_Wpb1PVCseS")
     public String baidu() {
         return "baidu_verify_Wpb1PVCseS";
@@ -65,11 +65,11 @@ public class BackController {
         return "adminindex";
     }
 
-    /**
+    *//**
      * 获得统计信息
      *
      * @return
-     */
+     *//*
     @GetMapping("/getStatisticsInfo")
     @ResponseBody
     public JSONObject getStatisticsInfo() {
@@ -84,11 +84,11 @@ public class BackController {
 
     }
 
-    /**
+    *//**
      * 跳转标签页
      *
      * @return
-     */
+     *//*
     @GetMapping("/tags")
     public String getTags(HttpServletResponse response,
                           HttpServletRequest request) {
@@ -104,11 +104,11 @@ public class BackController {
         return "Tags";
     }
 
-    /**
+    *//**
      * 跳转标签页
      *
      * @return
-     */
+     *//*
     @GetMapping("/category")
     public String getCategory(HttpServletResponse response,
                               HttpServletRequest request) {
@@ -200,5 +200,5 @@ public class BackController {
         return null;
     }
 
-
+*/
 }

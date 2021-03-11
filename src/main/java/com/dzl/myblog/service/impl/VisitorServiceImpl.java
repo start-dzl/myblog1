@@ -1,8 +1,10 @@
 package com.dzl.myblog.service.impl;
 
 import com.dzl.myblog.entity.Visitor;
+import com.dzl.myblog.entity.VisitorExample;
 import com.dzl.myblog.mapper.VisitorMapper;
 import com.dzl.myblog.service.VisitorService;
+import com.github.pagehelper.PageHelper;
 import net.sf.json.JSONObject;
 import org.apache.ibatis.binding.BindingException;
 import org.slf4j.Logger;
@@ -11,7 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 public class VisitorServiceImpl implements VisitorService {
@@ -21,7 +26,7 @@ public class VisitorServiceImpl implements VisitorService {
     @Autowired
     VisitorMapper visitorMapper;
 
-    @Override
+   /* @Override
     public void addVisitorNumByPageName(String pageName, HttpServletRequest request) {
 
         String visitor;
@@ -87,11 +92,17 @@ public class VisitorServiceImpl implements VisitorService {
             visitorMapper.deleteVisitorArtcle(VisitorPage);
         }
 
-    }
+    }*/
 
     @Override
     public List<Visitor> grtHotVistor() {
-        return visitorMapper.getHotAtrcle();
+        VisitorExample visitorExample = new VisitorExample();
+        VisitorExample.Criteria criteria = visitorExample.createCriteria();
+        List<String> collect = Stream.of("totalVisitor", "visitorWithoutArticle").collect(Collectors.toList());
+        criteria.andPageNameNotIn(collect);
+        visitorExample.setOrderByClause("visitorNum desc");
+        PageHelper.startPage(0, 5);
+        return visitorMapper.selectByExample(visitorExample);
     }
 
 }

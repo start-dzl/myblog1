@@ -5,7 +5,62 @@
 
 <generatorConfiguration>
     <properties resource="application-local.properties"/>
-    <context id="myContext" targetRuntime="MyBatis3" defaultModelType="flat">
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
+
+        <commentGenerator>
+            <!-- 不希望生成的注释中包含时间戳 -->
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="${spring.datasource.driverClassName}"
+                        connectionURL="${spring.datasource.url}"
+                        userId="${spring.datasource.username}"
+                        password="${spring.datasource.password}">
+            <!--高版本的 mysql-connector-java 需要设置 nullCatalogMeansCurrent=true-->
+            <property name="nullCatalogMeansCurrent" value="true"/>
+        </jdbcConnection>
+
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="com.dzl.myblog.entity" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mapper"  targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.dzl.myblog.mapper"  targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <table schema="DB2ADMIN" tableName="article" >
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="DB2ADMIN" tableName="article_category" >
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="DB2ADMIN" tableName="article_tag" >
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="DB2ADMIN" tableName="role" >
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="DB2ADMIN" tableName="user" >
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="DB2ADMIN" tableName="user_role" >
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table schema="DB2ADMIN" tableName="visitor" >
+            <property name="useActualColumnNames" value="true"/>
+            <columnOverride column="pageName" javaType="java.lang.String" jdbcType="VARCHAR" />
+        </table>
 
     </context>
 </generatorConfiguration>
