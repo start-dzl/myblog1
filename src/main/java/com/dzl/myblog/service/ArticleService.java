@@ -1,15 +1,12 @@
 package com.dzl.myblog.service;
 
-import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
-import java.util.Map;
 
 public interface ArticleService {
 
-   /* *//**
+    JSONObject getArticleByArticleId(Integer articleId, String username);
+
+    /* *//**
      * 分页获得所有文章
      *
      * @param rows   一页显示文章数
@@ -26,13 +23,7 @@ public interface ArticleService {
      *//*
     Map<String, String> findArticleTitleByArticleId(long articleId);
 
-    *//**
-     * 获得文章
-     *
-     * @param articleId 文章id
-     * @return
-     *//*
-    JSONObject getArticleByArticleId(long articleId, String username);
+
 
     JSONObject getArticleManagement(int rows, int pageNum);
 

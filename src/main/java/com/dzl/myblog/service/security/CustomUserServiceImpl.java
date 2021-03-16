@@ -1,6 +1,8 @@
 package com.dzl.myblog.service.security;
-import com.dzl.myblog.utils.TimeUtil;
+
+import com.dzl.myblog.entity.User;
 import com.dzl.myblog.service.UserService;
+import com.dzl.myblog.utils.TimeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -26,7 +28,7 @@ public class CustomUserServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String phone) throws UsernameNotFoundException {
 
-/*        User user = userService.SelectUserandRolebyphone(phone);
+        User user = userService.SelectUserbyphone(phone);
 
         if(user == null){
             throw  new UsernameNotFoundException("用户不存在");
@@ -37,11 +39,6 @@ public class CustomUserServiceImpl implements UserDetailsService {
         //userService.updateRecentlyLanded(user.getUsername(), recentlyLanded);
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
 
-        for(Role role : user.getRoles()){
-            authorities.add(new SimpleGrantedAuthority(role.getName()));
-        }
-
-        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), authorities);*/
-        return null;
+        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), authorities);
     }
 }

@@ -1,17 +1,25 @@
 package com.dzl.myblog.service.impl;
 
+import com.dzl.myblog.entity.User;
+import com.dzl.myblog.entity.UserExample;
 import com.dzl.myblog.mapper.UserMapper;
 import com.dzl.myblog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
     UserMapper userMapper;
+
+    @Override
+    public User SelectUserbyphone(String phone) {
+        UserExample userExample = new UserExample();
+        UserExample.Criteria criteria = userExample.createCriteria();
+        criteria.andPhoneEqualTo(phone);
+        return userMapper.selectByExample(userExample).stream().findFirst().get();
+    }
 
    /* public UserServiceImpl() {
         super();

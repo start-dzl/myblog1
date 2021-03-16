@@ -7,8 +7,9 @@ import com.dzl.myblog.entity.User;
  * Describe:use业务操作
  */
 public interface UserService {
+    User SelectUserbyphone(String phone);
 
- /*   User SelectUserbyphone(String phone);
+ /*
 
     User SelectUserandRolebyphone(String phone);
 
